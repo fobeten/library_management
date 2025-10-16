@@ -1,11 +1,7 @@
-from os import name
 from typing import List, Optional
 from pydantic import BaseModel
-from fastapi import FastAPI, HTTPException
-
+from fastapi import HTTPException
 from models.book import get_next_id
-
-app = FastAPI()
 
 class Author(BaseModel):
     id:int = None
@@ -78,7 +74,7 @@ def add_author(author:Author):
     return new_author
 
 
-def fully_update_author(author_id: int, updated_author: Author):
+def modify_author_fully(author_id: int, updated_author: Author):
     for i, author in enumerate(authors):
         if author.id == author_id:
             authors[i] = Author(
@@ -90,19 +86,12 @@ def fully_update_author(author_id: int, updated_author: Author):
             return authors[i]
     raise HTTPException(status_code=404, detail="Author not found")
 
+def delete_author(id:int):
+    global authors
+    for i, author in enumerate(authors):
+        if author.id == id:
+            authors.pop(i)
+            return f"Author {author.name} was deleted"
+    raise HTTPException(status_code=404, detail="Author not found")
 
-@app.get("/authors")
-def get_all_authors():
-    return get_authors()
 
-@app.get("/authors/{id}")
-def get_an_author(id:int):
-    return get_one_author(id)
-
-@app.get("/authorsbooks/{id}")
-def get_authors_books(id:int):
-    return get_books(id)
-
-@app.post("/authors")
-def create_author(author:Author):
-    return add_author(author)

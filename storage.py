@@ -62,22 +62,22 @@ def get_one_author(author_id: int):
     raise HTTPException(status_code=404, detail="That Author doesn't exist")
 
 
-def get_books(author_id:int):
+def get_books(author_name:str):
     book_titles = []
-    author_name = None
-    for author in authors:
-        if author_id == author.id:
-            author_name = author.name
-        
+    # author_name = None
+    # for author in authors:
+    #     if author_id == author.id:
+    #         author_name = author.name
+
     if author_name is None:
         return []
-    
+
     for book in books:
         if author_name.lower() == book.author.lower():
             book_titles.append(book.title)
     return book_titles
 
-print(get_books(5))
+# print(get_books("Haruki Murakami"))
 
 def add_author(author: Author):
     new_author = Author(

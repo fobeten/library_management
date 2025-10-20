@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "48906311-a8437dbb-08c7-400e-82c6-332111d7f333",
+		"name": "Library Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "book",
+			"item": [
+				{
+					"name": "get all books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6f279072-4bdf-44a4-8cda-807f1b2d5945",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "48906311-d5bd805f-1a89-4cfb-a9af-228433667eb8",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/books",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"books"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "get one book",
+					"id": "48906311-93b20e70-28dd-41ea-baab-8ac07c7450b7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/books/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"books",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Book",
+					"id": "48906311-9e787a6b-7659-41b8-af21-7fb6be55dd62",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"I Know Why the Caged Bird Sings\",\r\n    \"year\": 1969,\r\n    \"author\": \"Maya Angelou\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/books",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete book",
+					"id": "48906311-6c704fbc-00ef-424f-adb8-9e71381b96bd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/books/6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"books",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update book",
+					"id": "48906311-33f859f3-3644-4141-b702-10177341f5ad",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"title\": \"I didn't Know Why the Caged Bird Sings\",\r\n    \"year\": 1969,\r\n    \"author\": \"Maya Angelou\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/books/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"books",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "48906311-5d947fe2-da64-4606-a2d4-10fd96d6a8a9"
+		},
+		{
+			"name": "author",
+			"item": [
+				{
+					"name": "get all authors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6f279072-4bdf-44a4-8cda-807f1b2d5945",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"id": "48906311-fbf48a86-7724-4054-bace-010d34dab7e3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/authors",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"authors"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "get author",
+					"id": "48906311-12e39657-1b76-440e-b6ed-ea85d7b0bc19",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/authors/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"authors",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get author's book",
+					"id": "48906311-13f2ee33-53eb-4c74-96a0-eb9227f7c312",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/authors/books/Chinua Achebe",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"authors",
+								"books",
+								"Chinua Achebe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Author",
+					"id": "48906311-4eebe0aa-19c1-4729-9fbe-b24783d63457",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Late Chinua Achebe\",\r\n    \"bio\": \"Nigerian novelist and critic\",\r\n    \"books\": [\r\n        \"Things Fall Apart\",\r\n        \"No Longer at Ease\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/authors",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Author",
+					"id": "48906311-df024b53-4550-4126-b5bb-dc747cfb9228",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Late Chinua Achebe\",\r\n    \"bio\": \"Nigerian novelist and critic\",\r\n    \"books\": [\r\n        \"Things Fall Apart\",\r\n        \"No Longer at Ease\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/authors/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"authors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Author",
+					"id": "48906311-321cbe7b-040c-4887-8a03-efa64cd23663",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/authors/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"authors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "48906311-94f338d0-e1a0-49bf-bcab-ebf0084e642a"
+		}
+	]
+}

@@ -58,7 +58,11 @@ def get_authors():
 def get_one_author(author_id: int):
     for author in authors:
         if author.id == author_id:
-            return author
+            book_titles = get_books(author.name)
+            return Author (id=author.id,
+                name=author.name,
+                bio=author.bio,
+                books=book_titles)
     raise HTTPException(status_code=404, detail="That Author doesn't exist")
 
 

@@ -1,1 +1,5 @@
 venv/
+__pycache__/
+routes/tempCodeRunnerFile.py/
+routes/tempCodeRunnerFile.py
+models/__pycache__/author.cpython-313.pyc

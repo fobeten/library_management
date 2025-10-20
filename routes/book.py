@@ -1,30 +1,30 @@
 from fastapi import APIRouter
-from models import book
 from models.book import Book
+import storage as service
 
 router = APIRouter(prefix="/books")
 
 
 @router.get("/")
 def get_book():
-    return book.get_books()
+    return service.get_all_books()
 
 
 @router.get("/{id}")
 def get_a_book(id: int):
-    return book.get_one_book(id)
+    return service.get_one_book(id)
 
 
 @router.post("/")
 def create_book(new_book: Book):
-    return book.add_book(new_book)
+    return service.add_book(new_book)
 
 
 @router.put("/{id}")
 def put_book(id: int, new_book: Book):
-    return book.modify_book_fully(id, new_book)
+    return service.modify_book_fully(id, new_book)
 
 
 @router.delete("/{id}")
 def remove_book(id: int):
-    return book.delete_book(id)
+    return service.delete_book(id)

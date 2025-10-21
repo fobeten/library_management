@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from models.author import Author
-import storage as service
+import service.author as service
+
 
 router = APIRouter(prefix="/authors")
 

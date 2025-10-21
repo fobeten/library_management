@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from models.book import Book
-import service.book as service
+import services.book as service
 
 router = APIRouter(prefix="/books")
 

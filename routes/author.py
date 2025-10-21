@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from models.author import Author
-import service.author as service
+import services.author as service
 
 
 router = APIRouter(prefix="/authors")

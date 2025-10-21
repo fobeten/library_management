@@ -1,6 +1,6 @@
 from models.author import Author
 from fastapi import HTTPException
-from service.book import books
+from services.book import books
 
 authors = [
     Author(

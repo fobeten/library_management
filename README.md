@@ -23,12 +23,16 @@ A RESTful API for managing a library's books and authors, built with FastAPI and
 ```
 library_management/
 ├── main.py                 # Application entry point
-├── storage.py             # In-memory data storage and business logic
+├── storage.py             # #
 ├── requirements.txt       # Python dependencies
 ├── models/
 │   ├── __init__.py
 │   ├── author.py         # Author data model
 │   └── book.py           # Book data model
+├── services/
+│   ├── __init__.py
+│   ├── author.py         # Author temp data storage and business logic
+│   └── book.py           # Book temp data storage and business logic
 └── routes/
     ├── __init__.py
     ├── author.py         # Author API endpoints
@@ -45,12 +49,13 @@ library_management/
 ### Setup Instructions
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/fobeten/library_management.git
    cd library_management
    ```
-
 2. **Create a virtual environment** (recommended)
+
    ```bash
    # On Windows
    python -m venv venv
@@ -60,8 +65,8 @@ library_management/
    python3 -m venv venv
    source venv/bin/activate
    ```
-
 3. **Install dependencies**
+
    ```bash
    pip install -r requirements.txt
    ```
@@ -69,23 +74,24 @@ library_management/
 ## How to Run
 
 1. **Start the development server**
+
    ```bash
    uvicorn main:app --reload
    ```
 
    The `--reload` flag enables auto-reload on code changes (useful for development).
-
 2. **Access the application**
+
    - API Base URL: `http://127.0.0.1:8000`
    - Interactive API Documentation (Swagger UI): `http://127.0.0.1:8000/docs`
    - Alternative API Documentation (ReDoc): `http://127.0.0.1:8000/redoc`
-
 3. **To run on a different port**
+
    ```bash
    uvicorn main:app --reload --port 8080
    ```
-
 4. **To make the server accessible from other devices on your network**
+
    ```bash
    uvicorn main:app --reload --host 0.0.0.0
    ```
@@ -94,28 +100,29 @@ library_management/
 
 ### Authors
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/authors/` | Get all authors |
-| GET | `/authors/{id}` | Get a specific author by ID |
-| GET | `/authors/books/{author_name}` | Get all books by an author |
-| POST | `/authors/` | Create a new author |
-| PUT | `/authors/{id}` | Update an author |
-| DELETE | `/authors/{id}` | Delete an author |
+| Method | Endpoint                         | Description                 |
+| ------ | -------------------------------- | --------------------------- |
+| GET    | `/authors/`                    | Get all authors             |
+| GET    | `/authors/{id}`                | Get a specific author by ID |
+| GET    | `/authors/books/{author_name}` | Get all books by an author  |
+| POST   | `/authors/`                    | Create a new author         |
+| PUT    | `/authors/{id}`                | Update an author            |
+| DELETE | `/authors/{id}`                | Delete an author            |
 
 ### Books
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/books/` | Get all books |
-| GET | `/books/{id}` | Get a specific book by ID |
-| POST | `/books/` | Create a new book |
-| PUT | `/books/{id}` | Update a book |
-| DELETE | `/books/{id}` | Delete a book |
+| Method | Endpoint        | Description               |
+| ------ | --------------- | ------------------------- |
+| GET    | `/books/`     | Get all books             |
+| GET    | `/books/{id}` | Get a specific book by ID |
+| POST   | `/books/`     | Create a new book         |
+| PUT    | `/books/{id}` | Update a book             |
+| DELETE | `/books/{id}` | Delete a book             |
 
 ## Usage Examples
 
 ### Create a New Author
+
 ```bash
 curl -X POST "http://127.0.0.1:8000/authors/" \
   -H "Content-Type: application/json" \
@@ -126,6 +133,7 @@ curl -X POST "http://127.0.0.1:8000/authors/" \
 ```
 
 ### Create a New Book
+
 ```bash
 curl -X POST "http://127.0.0.1:8000/books/" \
   -H "Content-Type: application/json" \
@@ -137,11 +145,13 @@ curl -X POST "http://127.0.0.1:8000/books/" \
 ```
 
 ### Get All Books by an Author
+
 ```bash
 curl "http://127.0.0.1:8000/authors/books/George%20Orwell"
 ```
 
 ### Get a Specific Author
+
 ```bash
 curl "http://127.0.0.1:8000/authors/1"
 ```
@@ -151,6 +161,7 @@ curl "http://127.0.0.1:8000/authors/1"
 The application comes pre-loaded with sample data:
 
 **Authors:**
+
 - Chinua Achebe
 - Jane Austen
 - George Orwell
@@ -158,6 +169,7 @@ The application comes pre-loaded with sample data:
 - Haruki Murakami
 
 **Books:**
+
 - Things Fall Apart (1958)
 - Pride and Prejudice (1813)
 - 1984 (1949)
@@ -169,6 +181,7 @@ The application comes pre-loaded with sample data:
 ## Data Models
 
 ### Author
+
 ```python
 {
   "id": int,
@@ -179,6 +192,7 @@ The application comes pre-loaded with sample data:
 ```
 
 ### Book
+
 ```python
 {
   "id": int,
@@ -191,9 +205,11 @@ The application comes pre-loaded with sample data:
 ## Development
 
 ### Running Tests
+
 *Note: Test suite not yet implemented*
 
 ### Code Style
+
 This project follows standard Python conventions (PEP 8).
 
 ## Future Enhancements

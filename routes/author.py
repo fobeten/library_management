@@ -18,7 +18,7 @@ def get_an_author(id: int):
 
 
 @router.get("/books/{author_name}")
-def get_authors_books(author_name:str):
+def get_authors_books(author_name: str):
     return service.get_books(author_name)
 
 

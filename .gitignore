@@ -3,3 +3,8 @@ __pycache__/
 routes/tempCodeRunnerFile.py/
 routes/tempCodeRunnerFile.py
 models/__pycache__/author.cpython-313.pyc
+routes/__pycache__/author.cpython-313.pyc
+routes/__pycache__/author.cpython-313.pyc
+routes/__pycache__/book.cpython-313.pyc
+__pycache__/main.cpython-313.pyc
+.gitignore
